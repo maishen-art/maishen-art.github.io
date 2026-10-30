@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Егор Мышенин — 3D Character Artist</title>
+<meta name="description" content="Портфолио 3D-художника по персонажам: game-ready модели для Unreal Engine 5 и Unity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF7E7; --ink:#670000; --muted:#670000a6; --line:#6700002e;
+    --card:#fffaf0; --dark:#1b1212;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+  .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .role{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  h1{font-size:clamp(36px,6vw,64px);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  .links{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 18px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;transition:background .15s,color .15s}
+  .btn:hover,.btn.fill{background:var(--ink);color:var(--bg)}
+  .btn.fill:hover{background:transparent;color:var(--ink)}
+  .about{margin-top:28px;max-width:720px;font-size:16px}
+
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 20px}
+  .chip{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+  .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding-bottom:64px;align-items:start}
+  .card{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;width:100%;background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .2s,box-shadow .2s;text-align:left;font:inherit;color:inherit;padding:0}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #67000022}
+  .card:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .thumb{aspect-ratio:4/3;background:#e9dcc6 center/cover no-repeat;display:block;width:100%}
+  .meta{display:block;padding:14px 16px 16px}
+  .meta h3{font-size:16px;font-weight:600}
+  .meta p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  .viewer{position:fixed;inset:0;background:var(--dark);color:#f4e9d8;overflow-y:auto;display:none;z-index:10}
+  .viewer.open{display:block}
+  .vbar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:#1b1212ee;backdrop-filter:blur(6px);z-index:2}
+  .vbar h2{font-size:18px;font-weight:600}
+  .vbar span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-left:10px}
+  .close{font:inherit;font-size:14px;font-weight:600;background:#f4e9d8;color:var(--dark);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+  .vbody{max-width:1400px;margin:0 auto;padding:8px 24px 64px}
+  .vdesc{max-width:760px;margin:8px 0 24px;opacity:.85}
+  .media{display:grid;gap:14px}
+  .media img{width:100%;height:auto;display:block;border-radius:8px;background:#2a1f1f;min-height:200px}
+  .video{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
+  .vnav button{font:inherit;font-size:14px;font-weight:600;background:transparent;color:#f4e9d8;border:1px solid #f4e9d855;border-radius:999px;padding:10px 18px;cursor:pointer}
+  @media (max-width:600px){.wrap,.vbody{padding-left:16px;padding-right:16px}.vbar{padding:12px 16px}header{padding-top:36px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="role">3D Character Artist</div>
+        <h1>Егор Мышенин</h1>
+      </div>
+      <nav class="links">
+        <a class="btn fill" href="https://drive.google.com/file/d/1HUGQEuV2DqtC_tOnNE5IrBg756fmB3TE/view" target="_blank" rel="noopener">Резюме</a>
+        <a class="btn" href="https://www.artstation.com/maishen" target="_blank" rel="noopener">ArtStation</a>
+        <a class="btn" href="mailto:emyshenin@gmail.com">Написать</a>
+      </nav>
+    </div>
+    <p class="about">Делаю game-ready персонажей под Unreal Engine 5 и Unity по полному пайплайну: скульпт, ретопология под анимацию, UV, запекание, PBR-текстуры, сборка в движке. Также пропсы, hard-surface и модели под 3D-печать.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="filters" role="group" aria-label="Фильтр работ">
+    <button class="chip" data-f="all" aria-pressed="true">Все</button>
+    <button class="chip" data-f="Real-time" aria-pressed="false">Real-time</button>
+    <button class="chip" data-f="Cycles" aria-pressed="false">Рендер</button>
+    <button class="chip" data-f="Печать" aria-pressed="false">3D-печать</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="wrap"><footer>
+  <span>© Егор Мышенин</span>
+  <span><a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a> · <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a></span>
+</footer></div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle">
+  <div class="vbar">
+    <h2 id="vtitle"></h2>
+    <button class="close" id="close">Закрыть ✕</button>
+  </div>
+  <div class="vbody">
+    <p class="vdesc" id="vdesc"></p>
+    <div class="media" id="media"></div>
+    <div class="vnav"><button id="prev">← Предыдущая</button><button id="next">Следующая →</button></div>
+  </div>
+</div>
+
+<script>
+const P = [
+ {t:"Arida",tag:"Real-time",cover:"1Pyse5vhO2QgK8pG_CXsUES7qRskkzGYM",
+  d:"Game-ready персонаж по мотивам вселенной «Дюны». Скульпт в ZBrush, симуляция ткани в Marvelous Designer, текстуры в Substance Painter, финальная сцена и рендер в Unreal Engine 5.",
+  m:["i:1Pyse5vhO2QgK8pG_CXsUES7qRskkzGYM","i:1dJ5_JVcyFc8VbyfG-HnytWi9tvMP0e6U","i:1ITRObGhoGGvdj8hUa5554Zdxc4WgjL7v","i:1Z70t44tc3tOvm-cryETfqbausTAzef6k","i:1W_LoHBy270pzRRChf5obLaGyIPcn2Tix","v:1mboSyGn6EEAdjBHuLkF3Tm75NLZCwLxI","i:1Y2Nw2sb4mqHZTtKKIm6grn7xAAS_r2CK","i:1CsFpByqhNk7fbRbatNez2PYN2EGbP62H","i:1EtCJtomWJduXYAhn-X9QzNLDL1ZJEyth","i:1qVdI1y_7GggBudObzfXsZre4QFReDFby","i:1H1BVGtTtbKXLCYTZ7VYVUBgyqA6TT_qu","i:1i-xqLKUTKS85eMKfZHU4vcYbvXROK5LT","i:1p017mObWgH5jK2qoECorbNcRYoMa0Pqg","i:16YupaNW-112NJnLmuHMuL2NeHSSmGIIt","i:12re9VRE0gqRaj5pq1mn5aPa5qsoxrfwi","i:1ytktybmF5tM6uZcoLvrdWtj8Zgu8ndRS","i:1BjqxjJPCPTuAu_xri4NS74J7R2viYWzF","i:1ZgcFOi7g2weNTAIdYW9dqtVXcXzbkEyW"]},
+ {t:"Frieren",tag:"Real-time",cover:"1v2P906ymWug9mq9hx6axCBzbUtoWLe_E",
+  d:"Фан-арт персонажа Фрирен: game-ready модель, турнтейбл и анимированные пролёты камеры.",
+  m:["i:1v2P906ymWug9mq9hx6axCBzbUtoWLe_E","v:1wPfggMXV6U7qCNBBlMKL3mNfHfnbQc1i","i:1s1QrJIr4mxs11YJSvwHddJZvpMR0l8Mh","i:12HnOa1LWCNufONdUWQr2udVWseEmZmYc","i:1AANvpcDetH1e-UuKBpvr2O3GDohM6W8z","i:14SGRLR6jtgmh23rqlfCfcJSc_IwU7QNE","i:1xHWJRv7ZisEJ9Yr36OHC25Ne535vD-3z","i:1W6ymBis8mH6N4_B0PATGj2b_5NTBLBYX","i:1xBpLIofttaWga8n0LaBq4j9z2oJQ3oGL","i:18I6HknHV_FUO1mmAdn4M5Mc0RNZ7Pi4f","i:1OWrk-0m4t_NQxJplHfrgarLCY3LQutv1","v:1HCcAUQVTNKXGUjOOm8cKLCqObN9pD7ho","v:1kIQnwB4Uw0wn2EfQRVY4cC0fe81FPXVe","v:1qG6qyNBJ89DT56H3jlemnQDo8gKI5erb","v:1DH6kZcym1fttc2sBL-yyNWooAZkmuhAJ"]},
+ {t:"Daggers",tag:"Real-time",cover:"1HJgiKByfnCeif4ahmWASgluQxFeq7quj",
+  d:"Пара кинжалов для персонажа Arida. Game-ready ассеты с PBR-текстурами, рендер в Unreal Engine 5.",
+  m:["i:1HJgiKByfnCeif4ahmWASgluQxFeq7quj","i:1cyuUqOh-9Uu9id787i7Tx5Z0lq3yD2Uu","i:1ltDVQ5_muCCmZ-C3XEvOxAKJ5OakMSqI","i:1H8t-V06eqBgAKZ64aJx0qXeSZaAY7sQ5","v:1FXkVMCnF0BNqZNtJzDjjZJiiy0EWGr2b"]},
+ {t:"Furry Mouse",tag:"Cycles",cover:"1w1V4vZTTB46G19ASJbXLzDVtJNWX7EEN",
+  d:"Стилизованный персонаж-мышь под рендер. Шерсть сделана через hair system в Blender, финальный рендер там же.",
+  m:["i:1w1V4vZTTB46G19ASJbXLzDVtJNWX7EEN","i:1VAJUt9d8r90bbkvVJ1egUgSDZHu_YbAY","i:1yAS-_JsMCZAmZ5hDJPNH4YDXNn-vXg8z","i:1DDI_-6Nrp2mVBFh44f1ofcl3OiHtm_3H","v:1FyFaneUO7L2ucTy6UN3B8WikP-Zvv6Xq"]},
+ {t:"Hanako",tag:"Cycles",cover:"1TaW9-nCZfs70T_w5qActlelgxHXq3qEu",
+  d:"Фан-арт персонажа Ханако из аниме «Туалетный мальчик Ханако». Стилизованный персонаж под рендер, зариган и готов к анимации. Рендер в Blender.",
+  m:["i:1TaW9-nCZfs70T_w5qActlelgxHXq3qEu","i:1depFDCplMjJeCqC7wBKKASDzOGFC45Ru","i:1ePvlOJrCfPFMB0yiRyjeqiPHi_fHgvEv","i:1PcUUvwJGldoCL7ESwEik0UEhT1t07gt4","i:1vWVLOr12KXc3sLqekkmdHOzRf1Hg8dcz","i:1eoibjjwRQJfemkXLUjpJk5wsecF1SPPX","i:1YKPltymIBsrNBk2vEsLDDm0NAbaP0YQ2","i:1l30cwCZWs6yZ0v8ZXM72WJD4R3q6b_5G","i:1L3xLl4HvtoLdpGTkff7f0VCqIXt0qR20","i:1WzsMvpgyRACFam9EXnRqznYlrYLjs56m"]},
+ {t:"Staff",tag:"Real-time",cover:"1HqioqAew07EClU6qfll62pS8mgXVyJlD",
+  d:"Посох: game-ready ассет с текстурами и сеткой.",
+  m:["i:1HqioqAew07EClU6qfll62pS8mgXVyJlD","i:1B63PbE7upE6RHQPZrdf3okWdKg2AXKpM","i:1j7tjQaGJWnLkEzXWxucX_GretBPjNXCn","i:1sT2CcJEHBl07SQRpl0ZM066CbbOfZpAp","i:1ZsqKVjMMbtqn_sMkzjNnodhTY8QiRH4m","i:14qX4lzibBxhUxjEwSRHRnRgVdTfeoGQI"]},
+ {t:"Сетка и текстуры",tag:"Real-time",cover:"1Cm42_kmq0lEZ-kozndkUj5m_W5sYylaz",
+  d:"Примеры топологии и текстурных карт персонажей.",
+  m:["i:1Cm42_kmq0lEZ-kozndkUj5m_W5sYylaz","i:1j_tVQh6ezSBHOu5yDZd84Gw_tpqPpqs2","i:10zwCy8F3QNj9NOAcby-i9P2XMVLZLs6y","i:1UC5pwbCW5ztj3NwmvsdMtH52eyAPeQBL","i:16kEp6Ze4712C4qfe3SEDfGYbGl9iJqoq","i:1y4bj29UTcWlo_MeQQLpWKscG7R1kXZHF","i:1CPdThYP6fgSxhEjocOo1tyymLbyoKmpB","i:1Ulgz6p9IQSFynygJP4cg6_24Jvom8OLy","i:1KUhRT2v-vZprzfeGXuVj6elrOJMSrE7S","i:1fyhQTgNRMCl2xiTjiYrsoTQilF_yUQWz"]},
+ {t:"School Mascot",tag:"Cycles",cover:"1IMc554b0qcynLvkQkiXAEiW0hFFWVhbL",
+  d:"3D-маскот для онлайн-школы: персонаж, набор эмоций-эмодзи, пропсы и промо-рендеры.",
+  m:["i:1IMc554b0qcynLvkQkiXAEiW0hFFWVhbL","i:1EjfYYMYzSgJJ13P-B8698wKgIEQUMb2_","i:1B3UzmMYJwyaUGQhRfiqwYovXGEplJcf0","i:11TMp6btjfjoWD0espKD5N_-Rf1Svenb8","i:1vGbeMpH6v7snjwXPg2TEnS5cRZils7TJ","i:1P37dhxGs-EdsHZ7QDh4U36Of4UenldKm","i:1TjF8c3YCiSeACHpnUUIyzSpF2Hdi5_HA","i:1yl3UhCV9hORHHsVls7vZtjccnoybu_gN","i:1XA2QCDPjiISeurwzcO3cV9bDunbKR0QL","i:1xs0gw3gKDCe7fJao2Qoh3bWap6BqQdYj","i:1Iec1XnljouiJKieHE5W6Fj29hXTZ4gdE","i:1DFjYQiQZEia6yGSj6IdAyBK8RBcaGgIs","i:1T26I3m5ykxlLh7UYUbN68OChv5BnEzTX","i:1UpMULrREi9ldodZOUQdeNil29IKtona5","i:1-3hOhOCkOaxpmH9OLertaAm852JU5m1S","i:192vHaGU6Qx-Kr5AbwIJhbLnXyqJ4tws-","i:1bk8Uj82OshfcGRIAl5TG-0PDSHn-9gtf","i:1vuqkGYg8_1bfixfzUBmE3yiJcDDIWLmy","i:1_nQfdPSPNRltqDVydVwm7_h_nJy-2tgX","i:1lRI3HCXbLGVKlm_0pddCtohwsD-u8Vp0","i:1-TzY5ZnaEymW04OEvGHUG_m6BsaQ5Obi","i:1KEetU84bB6o-gls-nN9IGWHnlG6DylEh","i:1Ikux9Ivj2JZy_vvGZKbkiD3O0iIhysEi","i:1WSi-nAmR7YriMwazjG57KMJmVmqLJrLb","i:1LGQjMQ6Bm15mrC_7wpePJJjGHcKrPWfm","i:1ZB2TUVbI9PnH0rD-nWZGzOobLaMXETkx","i:1T0QdB7h3ehdHVl4LiPfBRtHOVZsBfG_B","i:13FmVx2XSULBVgBSUqO2LbT8FhFZY2exv","i:1wSj8r4pDKm7ASTRGSn3TtzlDPSGXBLNl","i:1HZrvze6uTFso7DexVeKrrPidTIDSMj_H","i:1vjZUP_1d9wcTuY12l_n6oba240wy897g","i:1Acbz206NBI79CkT6RBEyEGGYQADY4JG_","i:1Jl-1FhbMFyPdpy5tdgQHLtMWwYZsThp-","i:1K9rykDZ8HvOMj7CMztr8vdklwAVjQW_m","i:12-MBtBryimwAhjUCBnzMNxOV4k7rJxA7"]},
+ {t:"Low-poly Game Kit",tag:"Real-time",cover:"1XGf0-NNCqXLK5Fe5OqPO0jW7fFL1M_IF",
+  d:"Набор low-poly ассетов для игры.",
+  m:["i:1XGf0-NNCqXLK5Fe5OqPO0jW7fFL1M_IF","i:1U25QI3YJKr3nQsYUSaBHPjIEqNmbJiTX","i:1d4FgP1LOy7LSRpcq2e5w9I2x1BFFk2d_","i:1D_bsPO9MFwbjQJAmXKvaSbOOOjhWsVCc"]},
+ {t:"Low-poly Car",tag:"Real-time",cover:"1XAI4c9_F4jVHeSwhF7T2tE29Ts7XvK9B",
+  d:"Low-poly модель автомобиля.",
+  m:["i:1XAI4c9_F4jVHeSwhF7T2tE29Ts7XvK9B","i:1xT1-9UoefilDATy_8EUo88a_44nRlgO3","i:1qpuNUGGr5n8C_Gv1_f5_uj9a3wDCz7Eo"]},
+ {t:"Donatov.net Figure",tag:"Печать",cover:"1143TIQgAbS2xwj-TaRvPx8StT4ytkNN-",
+  d:"Фигурка, подготовленная к 3D-печати.",
+  m:["i:1143TIQgAbS2xwj-TaRvPx8StT4ytkNN-","i:1KKMCxFFDn18Wkz_Nt-a9cd2C74cAsCVU","i:1Yo7rRHJPkdI0FUwHvjDyux5yy2QUq63x","i:1MfRRgG7HoWpr_v8fL3U-Hx1_b74--fhz"]},
+ {t:"Funko Figure",tag:"Печать",cover:"1psXuCFQ3nxXI6yb6XHpETLDdKFTpACyZ",
+  d:"Фигурка в стиле Funko для 3D-печати.",
+  m:["i:1psXuCFQ3nxXI6yb6XHpETLDdKFTpACyZ","i:1j5aGA12z5XqWHiMne_28HsiH0prGI4Ld"]}
+];
+const TAGLABEL={"Real-time":"Real-time","Cycles":"Рендер · Cycles","Печать":"Для 3D-печати"};
+const img=(id,w)=>`https://lh3.googleusercontent.com/d/${id}=w${w}`;
+const alt=(id,w)=>`https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+
+const grid=document.getElementById('grid');
+function render(f){
+  grid.innerHTML='';
+  P.forEach((p,i)=>{
+    if(f!=='all'&&p.tag!==f) return;
+    const b=document.createElement('button');
+    b.className='card';
+    b.innerHTML=`<span class="thumb" style="background-image:url('${img(p.cover,1200)}'),url('${alt(p.cover,1200)}')"></span><span class="meta"><h3>${p.t}</h3><p>${TAGLABEL[p.tag]}</p></span>`;
+    b.onclick=()=>openP(i);
+    grid.appendChild(b);
+  });
+}
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
+  render(c.dataset.f);
+});
+render('all');
+
+const V=document.getElementById('viewer'),M=document.getElementById('media');
+let cur=0;
+function openP(i){
+  cur=(i+P.length)%P.length; const p=P[cur];
+  document.getElementById('vtitle').innerHTML=`${p.t}<span>${TAGLABEL[p.tag]}</span>`;
+  document.getElementById('vdesc').textContent=p.d;
+  M.innerHTML=p.m.map(x=>{
+    const [k,id]=x.split(':');
+    return k==='v'
+      ? `<div class="video"><iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="Видео ${p.t}"></iframe></div>`
+      : `<img loading="lazy" src="${img(id,2000)}" onerror="this.onerror=null;this.src='${alt(id,2000)}'" alt="${p.t}">`;
+  }).join('');
+  V.classList.add('open'); V.scrollTop=0; document.body.style.overflow='hidden';
+  history.replaceState(null,'','#'+encodeURIComponent(p.t));
+}
+function closeV(){V.classList.remove('open');document.body.style.overflow='';M.innerHTML='';history.replaceState(null,'',location.pathname);}
+document.getElementById('close').onclick=closeV;
+document.getElementById('prev').onclick=()=>openP(cur-1);
+document.getElementById('next').onclick=()=>openP(cur+1);
+addEventListener('keydown',e=>{if(!V.classList.contains('open'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')openP(cur+1);if(e.key==='ArrowLeft')openP(cur-1);});
+const h=decodeURIComponent(location.hash.slice(1)); const hi=P.findIndex(p=>p.t===h); if(hi>=0) openP(hi);
+</script>
+</body>
+</html>
