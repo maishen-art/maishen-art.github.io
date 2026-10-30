@@ -4,82 +4,175 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Егор Мышенин — 3D Character Artist</title>
-<meta name="description" content="Портфолио 3D-художника по персонажам: game-ready модели для Unreal Engine 5 и Unity.">
+<meta name="description" content="Резюме и портфолио 3D-художника по персонажам: game-ready модели для Unreal Engine 5 и Unity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#FFF7E7; --ink:#670000; --muted:#670000a6; --line:#6700002e;
-    --card:#fffaf0; --dark:#1b1212;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+:root{--bg:#FFF7E7;--ink:#670000;--muted:#670000a6;--soft:#67000080;--line:#6700002e;--card:#fffaf0;--dark:#1b1212;--page:#FFF7E7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#efe4d0;color:var(--ink);font-family:Montserrat,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
-  .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-  .role{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  h1{font-size:clamp(36px,6vw,64px);font-weight:600;line-height:1.05;letter-spacing:-.01em}
-  .links{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{display:inline-block;padding:10px 18px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;transition:background .15s,color .15s}
-  .btn:hover,.btn.fill{background:var(--ink);color:var(--bg)}
-  .btn.fill:hover{background:transparent;color:var(--ink)}
-  .about{margin-top:28px;max-width:720px;font-size:16px}
+/* top nav */
+.nav{position:sticky;top:0;z-index:5;background:#FFF7E7f2;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.tabs{display:flex;gap:4px}
+.tab{font:inherit;font-size:14px;font-weight:600;text-decoration:none;padding:8px 16px;border-radius:999px}
+.tab[aria-current=page]{background:var(--ink);color:var(--bg)}
+.tab:not([aria-current=page]):hover{background:#6700000f}
 
-  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 20px}
-  .chip{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
-  .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* resume page */
+#resume{padding:40px 0 64px}
+.sheet{max-width:860px;margin:0 auto;background:var(--page);box-shadow:0 10px 40px #67000018;border-radius:4px;padding:64px 64px 56px}
+.rhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1.5px solid var(--ink)}
+.rhead h1{font-size:clamp(32px,5vw,46px);font-weight:600;line-height:1.05}
+.rcontact{text-align:right;font-size:14px;line-height:1.6}
+.rcontact .role{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:48px;margin-top:36px}
+.sec+.sec{margin-top:30px}
+.sec h2{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.about{font-size:14.5px;text-align:justify}
+.job+.job{margin-top:16px}
+.job .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.job h3{font-size:14.5px;font-weight:600}
+.date{font-size:12px;color:var(--soft);white-space:nowrap}
+.sub{font-size:12.5px;color:var(--soft);margin:1px 0 4px}
+.job ul,.list{list-style:none;font-size:13.5px}
+.job li,.list li{position:relative;padding-left:14px}
+.job li::before,.list li::before{content:"•";position:absolute;left:0;color:var(--soft)}
+.plain{list-style:none;font-size:13.5px;line-height:1.75}
+.right .sec{border-top:1px solid var(--line);padding-top:22px}
+.right .sec:first-child{border-top:0;padding-top:0}
+.list{line-height:1.75}
+.edu li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px}
+.edu li+li{margin-top:8px}
+.langs li{display:flex;justify-content:space-between;font-size:14.5px}
+.langs span{color:var(--soft)}
+.ractions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:11px 20px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;background:transparent;color:var(--ink);transition:background .15s,color .15s}
+.btn:hover,.btn.fill{background:var(--ink);color:var(--bg)}
+.btn.fill:hover{background:transparent;color:var(--ink)}
+@media (max-width:760px){
+  .sheet{padding:36px 22px 32px;border-radius:0;box-shadow:none}
+  #resume{padding:0 0 40px}
+  .rgrid{grid-template-columns:1fr;gap:30px}
+  .rcontact{text-align:left}
+  .about{text-align:left}
+  .right .sec:first-child{border-top:1px solid var(--line);padding-top:22px}
+}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding-bottom:64px;align-items:start}
-  .card{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;width:100%;background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .2s,box-shadow .2s;text-align:left;font:inherit;color:inherit;padding:0}
-  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #67000022}
-  .card:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-  .thumb{aspect-ratio:4/3;background:#e9dcc6 center/cover no-repeat;display:block;width:100%}
-  .meta{display:block;padding:14px 16px 16px}
-  .meta h3{font-size:16px;font-weight:600}
-  .meta p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+/* portfolio */
+#portfolio{background:var(--bg);min-height:100vh}
+.phead{padding:44px 0 8px}
+.phead h1{font-size:clamp(30px,5vw,48px);font-weight:600;line-height:1.1}
+.phead p{margin-top:12px;max-width:720px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 20px}
+.chip{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding-bottom:64px;align-items:start}
+.card{display:flex;flex-direction:column;width:100%;background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .2s,box-shadow .2s;text-align:left;font:inherit;color:inherit;padding:0}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #67000022}
+.card:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.thumb{aspect-ratio:4/3;background:#e9dcc6 center/cover no-repeat;display:block;width:100%}
+.meta{display:block;padding:14px 16px 16px}
+.meta h3{font-size:16px;font-weight:600}
+.meta p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-  footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-  .viewer{position:fixed;inset:0;background:var(--dark);color:#f4e9d8;overflow-y:auto;display:none;z-index:10}
-  .viewer.open{display:block}
-  .vbar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:#1b1212ee;backdrop-filter:blur(6px);z-index:2}
-  .vbar h2{font-size:18px;font-weight:600}
-  .vbar span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-left:10px}
-  .close{font:inherit;font-size:14px;font-weight:600;background:#f4e9d8;color:var(--dark);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
-  .vbody{max-width:1400px;margin:0 auto;padding:8px 24px 64px}
-  .vdesc{max-width:760px;margin:8px 0 24px;opacity:.85}
-  .media{display:grid;gap:14px}
-  .media img{width:100%;height:auto;display:block;border-radius:8px;background:#2a1f1f;min-height:200px}
-  .video{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
-  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .vnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
-  .vnav button{font:inherit;font-size:14px;font-weight:600;background:transparent;color:#f4e9d8;border:1px solid #f4e9d855;border-radius:999px;padding:10px 18px;cursor:pointer}
-  @media (max-width:600px){.wrap,.vbody{padding-left:16px;padding-right:16px}.vbar{padding:12px 16px}header{padding-top:36px}}
+.viewer{position:fixed;inset:0;background:var(--dark);color:#f4e9d8;overflow-y:auto;display:none;z-index:10}
+.viewer.open{display:block}
+.vbar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:#1b1212ee;backdrop-filter:blur(6px);z-index:2}
+.vbar h2{font-size:18px;font-weight:600}
+.vbar span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-left:10px}
+.close{font:inherit;font-size:14px;font-weight:600;background:#f4e9d8;color:var(--dark);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+.vbody{max-width:1400px;margin:0 auto;padding:8px 24px 64px}
+.vdesc{max-width:760px;margin:8px 0 24px;opacity:.85}
+.media{display:grid;gap:14px}
+.media img{width:100%;height:auto;display:block;border-radius:8px;background:#2a1f1f;min-height:200px}
+.video{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
+.vnav button{font:inherit;font-size:14px;font-weight:600;background:transparent;color:#f4e9d8;border:1px solid #f4e9d855;border-radius:999px;padding:10px 18px;cursor:pointer}
+[hidden]{display:none!important}
+@media (max-width:600px){.wrap,.vbody{padding-left:16px;padding-right:16px}.vbar{padding:12px 16px}.brand{font-size:14px}.tab{padding:8px 12px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="top">
-      <div>
-        <div class="role">3D Character Artist</div>
-        <h1>Егор Мышенин</h1>
-      </div>
-      <nav class="links">
-        <a class="btn fill" href="https://drive.google.com/file/d/1HUGQEuV2DqtC_tOnNE5IrBg756fmB3TE/view" target="_blank" rel="noopener">Резюме</a>
-        <a class="btn" href="https://www.artstation.com/maishen" target="_blank" rel="noopener">ArtStation</a>
-        <a class="btn" href="mailto:emyshenin@gmail.com">Написать</a>
-      </nav>
-    </div>
-    <p class="about">Делаю game-ready персонажей под Unreal Engine 5 и Unity по полному пайплайну: скульпт, ретопология под анимацию, UV, запекание, PBR-текстуры, сборка в движке. Также пропсы, hard-surface и модели под 3D-печать.</p>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#">Егор Мышенин</a>
+  <div class="tabs">
+    <a class="tab" href="#" data-tab="resume">Резюме</a>
+    <a class="tab" href="#portfolio" data-tab="portfolio">Портфолио</a>
   </div>
-</header>
+</div></nav>
 
-<main class="wrap">
+<section id="resume">
+ <div class="wrap">
+  <article class="sheet">
+    <div class="rhead">
+      <h1>Егор Мышенин</h1>
+      <div class="rcontact">
+        <div class="role">3D Character Artist</div>
+        <a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a><br>
+        Красноярск<br>
+        <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a>
+      </div>
+    </div>
+    <div class="rgrid">
+      <div class="left">
+        <section class="sec"><h2>О себе</h2>
+          <p class="about">3D-художник по персонажам. Делаю game-ready модели под Unreal Engine 5 и Unity по полному пайплайну: скульпт, ретопология под анимацию, UV, запекание, PBR-текстуры, сборка в движке. Есть опыт работы в студии и на фрилансе, закрываю также пропсы и hard-surface. Английский B2.</p>
+        </section>
+        <section class="sec"><h2>Опыт работы</h2>
+          <div class="job"><div class="row"><h3>3D-моделлер — Visuva</h3><span class="date">2026 – наст. время</span></div>
+            <div class="sub">Студия · 3 месяца</div>
+            <ul><li>Моделирование и текстурирование 3D-моделей по ТЗ</li><li>Ретопология, UV и PBR-текстуры под требования проекта</li></ul></div>
+          <div class="job"><div class="row"><h3>Фриланс 3D-художник</h3><span class="date">2024 – наст. время</span></div>
+            <div class="sub">Самозанятый · различные клиенты</div>
+            <ul><li>Low-poly ассеты для мобильной игры (Unity)</li><li>3D-маскот для онлайн-школы и пропсы для рендеров</li><li>Перенос рига между персонажами, импорт в Unity</li></ul></div>
+          <div class="job"><div class="row"><h3>Инди-игра · Unreal Engine 5, команда</h3><span class="date">2025–2026</span></div>
+            <ul><li>Ассеты окружения: модели, текстуры, сборка в UE5</li></ul></div>
+          <div class="job"><div class="row"><h3>Соло-игра · Unity</h3><span class="date">2024–2025</span></div>
+            <ul><li>Весь 3D-контент: модели, текстуры, импорт в движок</li></ul></div>
+        </section>
+        <section class="sec"><h2>Образование и курсы</h2>
+          <ul class="edu">
+            <li><span>ИКИТ СФУ — «Разработка компьютерных игр и приложений», студент</span><span class="date">2023–2027</span></li>
+            <li><span>FlippedNormals — Introduction to Anatomy</span><span class="date">2025</span></li>
+            <li><span>Hafez Yadollahi — AAA Game Character Creation</span><span class="date">2026</span></li>
+            <li><span>FastTrackTutorials — AAA Game Character Creation</span><span class="date">2025</span></li>
+          </ul>
+        </section>
+      </div>
+      <div class="right">
+        <section class="sec"><h2>Программы</h2>
+          <ul class="plain"><li>ZBrush</li><li>Blender</li><li>Substance Painter</li><li>Marmoset Toolbag</li><li>Marvelous Designer</li><li>R3DS Wrap</li><li>Photoshop</li><li>Unreal Engine 5</li><li>Unity</li></ul>
+        </section>
+        <section class="sec"><h2>Навыки</h2>
+          <ul class="list"><li>Скульпт по концептам</li><li>Анатомия, реализм и стилизация</li><li>Ретопология под анимацию</li><li>UV-развёртка и запекание</li><li>PBR-текстурирование</li><li>Симуляция одежды</li><li>Материалы и сборка в UE5</li><li>Low-poly для мобильных игр</li><li>Hard-surface и пропсы</li><li>Модели под 3D-печать</li><li>Python-скрипты для Blender</li></ul>
+        </section>
+        <section class="sec"><h2>Языки</h2>
+          <ul class="langs"><li>Русский <span>Родной</span></li><li>Английский <span>B2</span></li></ul>
+        </section>
+      </div>
+    </div>
+  </article>
+  <div class="ractions">
+    <a class="btn fill" href="#portfolio">Смотреть портфолио →</a>
+    <a class="btn" href="resume.pdf" download>Скачать PDF</a>
+  </div>
+ </div>
+</section>
+
+<section id="portfolio" hidden>
+ <div class="wrap">
+  <div class="phead">
+    <h1>Портфолио</h1>
+    <p>Game-ready персонажи и ассеты под Unreal Engine 5 и Unity, стилизованные персонажи под рендер и модели для 3D-печати.</p>
+  </div>
   <div class="filters" role="group" aria-label="Фильтр работ">
     <button class="chip" data-f="all" aria-pressed="true">Все</button>
     <button class="chip" data-f="Real-time" aria-pressed="false">Real-time</button>
@@ -87,18 +180,15 @@
     <button class="chip" data-f="Печать" aria-pressed="false">3D-печать</button>
   </div>
   <div class="grid" id="grid"></div>
-</main>
-
-<div class="wrap"><footer>
-  <span>© Егор Мышенин</span>
-  <span><a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a> · <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a></span>
-</footer></div>
+  <footer>
+    <span>© Егор Мышенин</span>
+    <span><a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a> · <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a></span>
+  </footer>
+ </div>
+</section>
 
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle">
-  <div class="vbar">
-    <h2 id="vtitle"></h2>
-    <button class="close" id="close">Закрыть ✕</button>
-  </div>
+  <div class="vbar"><h2 id="vtitle"></h2><button class="close" id="close">Закрыть ✕</button></div>
   <div class="vbody">
     <p class="vdesc" id="vdesc"></p>
     <div class="media" id="media"></div>
@@ -148,7 +238,6 @@ const P = [
 const TAGLABEL={"Real-time":"Real-time","Cycles":"Рендер · Cycles","Печать":"Для 3D-печати"};
 const img=(id,w)=>`https://lh3.googleusercontent.com/d/${id}=w${w}`;
 const alt=(id,w)=>`https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
-
 const grid=document.getElementById('grid');
 function render(f){
   grid.innerHTML='';
@@ -157,7 +246,7 @@ function render(f){
     const b=document.createElement('button');
     b.className='card';
     b.innerHTML=`<span class="thumb" style="background-image:url('${img(p.cover,1200)}'),url('${alt(p.cover,1200)}')"></span><span class="meta"><h3>${p.t}</h3><p>${TAGLABEL[p.tag]}</p></span>`;
-    b.onclick=()=>openP(i);
+    b.onclick=()=>{location.hash='portfolio/'+encodeURIComponent(p.t)};
     grid.appendChild(b);
   });
 }
@@ -168,7 +257,7 @@ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
 render('all');
 
 const V=document.getElementById('viewer'),M=document.getElementById('media');
-let cur=0;
+let cur=-1;
 function openP(i){
   cur=(i+P.length)%P.length; const p=P[cur];
   document.getElementById('vtitle').innerHTML=`${p.t}<span>${TAGLABEL[p.tag]}</span>`;
@@ -180,14 +269,27 @@ function openP(i){
       : `<img loading="lazy" src="${img(id,2000)}" onerror="this.onerror=null;this.src='${alt(id,2000)}'" alt="${p.t}">`;
   }).join('');
   V.classList.add('open'); V.scrollTop=0; document.body.style.overflow='hidden';
-  history.replaceState(null,'','#'+encodeURIComponent(p.t));
 }
-function closeV(){V.classList.remove('open');document.body.style.overflow='';M.innerHTML='';history.replaceState(null,'',location.pathname);}
-document.getElementById('close').onclick=closeV;
-document.getElementById('prev').onclick=()=>openP(cur-1);
-document.getElementById('next').onclick=()=>openP(cur+1);
-addEventListener('keydown',e=>{if(!V.classList.contains('open'))return;if(e.key==='Escape')closeV();if(e.key==='ArrowRight')openP(cur+1);if(e.key==='ArrowLeft')openP(cur-1);});
-const h=decodeURIComponent(location.hash.slice(1)); const hi=P.findIndex(p=>p.t===h); if(hi>=0) openP(hi);
+function closeViewer(){V.classList.remove('open');document.body.style.overflow='';M.innerHTML='';cur=-1;}
+const go=i=>{location.hash='portfolio/'+encodeURIComponent(P[(i+P.length)%P.length].t)};
+document.getElementById('close').onclick=()=>{location.hash='portfolio'};
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>go(cur+1);
+addEventListener('keydown',e=>{if(!V.classList.contains('open'))return;if(e.key==='Escape')location.hash='portfolio';if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  const isP=h.startsWith('portfolio');
+  document.getElementById('resume').hidden=isP;
+  document.getElementById('portfolio').hidden=!isP;
+  document.querySelectorAll('.tab').forEach(t=>t.toggleAttribute('aria-current',false));
+  document.querySelector(`.tab[data-tab="${isP?'portfolio':'resume'}"]`).setAttribute('aria-current','page');
+  const name=h.startsWith('portfolio/')?h.slice(10):'';
+  const i=P.findIndex(p=>p.t===name);
+  if(i>=0){ if(i!==cur) openP(i); } else if(V.classList.contains('open')) closeViewer();
+  if(!name) scrollTo(0,0);
+}
+addEventListener('hashchange',route); route();
 </script>
 </body>
 </html>
