@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Редактор сайта</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF7E7;--ink:#670000;--muted:#670000a6;--line:#67000026;--field:#fffdf8;--ok:#1d6b3a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#efe4d0;color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:14px;line-height:1.5}
+button,input,textarea,select{font:inherit;color:inherit}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 2px 12px #6700000d}
+.bar .in{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar h1{font-size:16px;font-weight:600;margin-right:auto}
+.btn{color:var(--ink);border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;text-decoration:none;font-size:13px;white-space:nowrap}
+.btn.fill{background:var(--ink);color:var(--bg)!important}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:4px 10px;font-size:12px;border-width:1px}
+.status{font-size:12.5px;color:var(--muted);width:100%}
+.status.ok{color:var(--ok);font-weight:600}
+.status.warn{color:#b04a00;font-weight:600}
+main{max-width:1000px;margin:0 auto;padding:24px 20px 80px}
+.start{background:var(--bg);border-radius:12px;padding:28px;text-align:center}
+.start p{margin:8px auto 18px;max-width:560px;color:var(--muted)}
+.start .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+details.box{background:var(--bg);border-radius:12px;margin-bottom:14px;border:1px solid var(--line)}
+details.box>summary{list-style:none;cursor:pointer;padding:16px 20px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+details.box>summary::after{content:"＋";font-size:18px;color:var(--muted)}
+details.box[open]>summary::after{content:"−"}
+details.box>.body{padding:0 20px 20px}
+label{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--muted);margin:12px 0 4px}
+input[type=text],textarea,select{width:100%;background:var(--field);border:1px solid var(--line);border-radius:8px;padding:9px 11px;outline:none}
+input[type=text]:focus,textarea:focus,select:focus{border-color:var(--ink)}
+textarea{resize:vertical;min-height:70px}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.item{border:1px solid var(--line);border-radius:10px;padding:4px 14px 14px;margin-top:12px;background:#fffaf2}
+.item .tools{display:flex;gap:6px;justify-content:flex-end;margin-top:10px;flex-wrap:wrap}
+.row{display:grid;grid-template-columns:1fr 150px auto;gap:8px;align-items:center;margin-top:8px}
+.add{margin-top:12px}
+.media{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:8px}
+.m{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;font-size:11px}
+.m .pic{aspect-ratio:4/3;background:#e9dcc6 center/cover no-repeat;position:relative}
+.m .pic .vid{position:absolute;inset:auto 6px 6px auto;background:#000a;color:#fff;border-radius:4px;padding:1px 6px}
+.m .pic .cov{position:absolute;left:6px;top:6px;background:var(--ink);color:#fff;border-radius:4px;padding:1px 6px}
+.m .mt{display:flex;justify-content:space-between;padding:4px}
+.m .mt button{border:0;background:none;cursor:pointer;padding:2px 5px;border-radius:4px}
+.m .mt button:hover{background:#6700000f}
+.addmedia{display:grid;grid-template-columns:1fr auto auto;gap:8px;margin-top:10px}
+.ptitle{display:flex;align-items:center;gap:10px}
+.ptitle img{width:44px;height:33px;object-fit:cover;border-radius:4px}
+.note{background:#fff3d6;border:1px solid #e6c98a;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:13px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:1fr 100px auto}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="in">
+  <h1>Редактор сайта</h1>
+  <a class="btn" href="index.html" target="_blank" rel="noopener">Открыть сайт ↗</a>
+  <button class="btn fill" id="save" disabled>Сохранить</button>
+  <div class="status" id="status">Файл не открыт</div>
+</div></div>
+
+<main>
+  <div class="start" id="start">
+    <h2>С чего начать</h2>
+    <p>Нажми «Открыть папку сайта» и выбери папку <b>maishen-art.github.io</b>. Редактор загрузит тексты, а кнопка «Сохранить» запишет изменения прямо туда. Потом в GitHub Desktop: Commit → Push.</p>
+    <div class="btns">
+      <button class="btn fill" id="openDir">Открыть папку сайта</button>
+      <button class="btn" id="openFile">Открыть content.json вручную</button>
+      <input type="file" id="fileInput" accept=".json,application/json" hidden>
+    </div>
+    <p class="hint" id="fsHint"></p>
+  </div>
+  <div id="editor" hidden></div>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const TAGS=[["Real-time","Real-time (игровые)"],["Cycles","Рендер · Cycles"],["Печать","Для 3D-печати"]];
+let C=null, dirHandle=null, dirty=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const thumb=id=>`https://lh3.googleusercontent.com/d/${id}=w400`;
+const status=(t,cls='')=>{const s=$('#status');s.textContent=t;s.className='status '+cls;};
+const markDirty=()=>{dirty=true;$('#save').disabled=false;status('Есть несохранённые изменения','warn');};
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+
+const canFS='showDirectoryPicker' in window;
+if(!canFS){$('#fsHint').innerHTML='Этот браузер не умеет сохранять прямо в папку (так бывает в Brave и Firefox). Открой редактор в <b>Microsoft Edge</b> или <b>Chrome</b> — или работай через «Открыть content.json вручную»: при сохранении файл скачается, и его нужно будет положить в папку сайта с заменой.';}
+
+$('#openDir').onclick=async()=>{
+  if(!canFS){alert('Этот браузер не поддерживает сохранение в папку. Открой редактор в Edge или Chrome, либо используй «Открыть content.json вручную».');return;}
+  try{
+    dirHandle=await showDirectoryPicker({mode:'readwrite'});
+    const fh=await dirHandle.getFileHandle('content.json');
+    C=JSON.parse(await (await fh.getFile()).text());
+    start(`Открыта папка «${dirHandle.name}»`);
+  }catch(e){ if(e.name!=='AbortError') alert('Не получилось открыть: в выбранной папке нет content.json. Выбери папку maishen-art.github.io.'); }
+};
+$('#openFile').onclick=()=>$('#fileInput').click();
+$('#fileInput').onchange=async e=>{
+  const f=e.target.files[0]; if(!f) return;
+  try{C=JSON.parse(await f.text());dirHandle=null;start('Открыт файл (при сохранении он скачается)');}catch{alert('Это не похоже на content.json');}
+};
+
+$('#save').onclick=async()=>{
+  collect();
+  const text=JSON.stringify(C,null,1)+'\n';
+  try{
+    if(dirHandle){
+      const fh=await dirHandle.getFileHandle('content.json',{create:true});
+      const w=await fh.createWritable(); await w.write(text); await w.close();
+      status('Сохранено ✓ Теперь в GitHub Desktop: Commit to main → Push origin','ok');
+    }else{
+      const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.download='content.json';a.click();
+      status('content.json скачан ✓ Положи его в папку сайта с заменой, затем Commit → Push','ok');
+    }
+    dirty=false;$('#save').disabled=true;
+  }catch(e){alert('Не удалось сохранить: '+e.message);}
+};
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&C){e.preventDefault();if(!$('#save').disabled)$('#save').click();}});
+
+function start(msg){
+  ['jobs','education','programs','skills','languages','projects'].forEach(k=>{if(!C[k])C[k]=[];});
+  $('#start').hidden=true;$('#editor').hidden=false;status(msg);draw();
+}
+
+// ---------- drawing ----------
+const field=(lab,key,obj,opts={})=>`<label>${lab}</label>${opts.area?`<textarea data-o="${opts.o||''}" data-key="${key}" rows="${opts.rows||3}">${esc(obj[key])}</textarea>`:`<input type="text" data-o="${opts.o||''}" data-key="${key}" value="${esc(obj[key])}">`}${opts.hint?`<div class="hint">${opts.hint}</div>`:''}`;
+const tools=(list,i)=>`<div class="tools"><button class="btn sm" data-act="up" data-list="${list}" data-i="${i}">↑</button><button class="btn sm" data-act="down" data-list="${list}" data-i="${i}">↓</button><button class="btn sm" data-act="del" data-list="${list}" data-i="${i}">Удалить</button></div>`;
+const openState={};
+
+function draw(){
+  document.querySelectorAll('details.box').forEach(d=>openState[d.dataset.id]=d.open);
+  const box=(id,title,body,open)=>`<details class="box" data-id="${id}" ${(openState[id]??open)?'open':''}><summary>${title}</summary><div class="body">${body}</div></details>`;
+  let h='<div class="note">Меняй текст в полях — сайт возьмёт его из файла content.json. Списки (навыки, программы, пункты опыта) пишутся <b>по одному пункту на строку</b>.</div>';
+  h+=box('head','Шапка и контакты',`<div class="grid2">${field('Имя','name',C)}${field('Должность','role',C)}${field('Почта','email',C)}${field('Город','city',C)}</div>${field('Ссылка на ArtStation','artstation',C)}`,true);
+  h+=box('about','О себе',field('Текст','about',C,{area:1,rows:5}),true);
+  h+=box('jobs','Опыт работы',C.jobs.map((j,i)=>`<div class="item"><div class="grid2">${field('Должность / проект','title',j,{o:'jobs.'+i})}${field('Даты','date',j,{o:'jobs.'+i})}</div>${field('Подзаголовок (серый)','sub',j,{o:'jobs.'+i})}<label>Пункты — по одному на строку</label><textarea data-o="jobs.${i}" data-key="bullets" data-lines="1" rows="3">${esc(j.bullets.join('\n'))}</textarea>${tools('jobs',i)}</div>`).join('')+`<button class="btn add" data-act="add" data-list="jobs">+ Добавить место работы</button>`);
+  h+=box('edu','Образование и курсы',C.education.map((e,i)=>`<div class="row"><input type="text" data-o="education.${i}" data-key="text" value="${esc(e.text)}"><input type="text" data-o="education.${i}" data-key="date" value="${esc(e.date)}"><span><button class="btn sm" data-act="up" data-list="education" data-i="${i}">↑</button> <button class="btn sm" data-act="del" data-list="education" data-i="${i}">✕</button></span></div>`).join('')+`<button class="btn add" data-act="add" data-list="education">+ Добавить</button>`);
+  h+=box('lists','Программы и навыки',`<div class="grid2"><div><label>Программы — по одной на строку</label><textarea data-key="programs" data-lines="1" rows="10">${esc(C.programs.join('\n'))}</textarea></div><div><label>Навыки — по одному на строку</label><textarea data-key="skills" data-lines="1" rows="10">${esc(C.skills.join('\n'))}</textarea></div></div>`);
+  h+=box('langs','Языки',C.languages.map((l,i)=>`<div class="row"><input type="text" data-o="languages.${i}" data-key="name" value="${esc(l.name)}"><input type="text" data-o="languages.${i}" data-key="level" value="${esc(l.level)}"><button class="btn sm" data-act="del" data-list="languages" data-i="${i}">✕</button></div>`).join('')+`<button class="btn add" data-act="add" data-list="languages">+ Добавить язык</button>`);
+  h+=box('pintro','Портфолио: вступительный текст',field('Текст под заголовком «Портфолио»','portfolioIntro',C,{area:1}));
+  h+=box('projects',`Работы в портфолио (${C.projects.length})`,C.projects.map((p,i)=>`
+    <details class="item" data-id="p${i}" ${openState['p'+i]?'open':''}><summary class="ptitle" style="cursor:pointer;list-style:none;padding-top:10px"><img src="${thumb(p.cover)}" alt=""><b>${esc(p.title)||'Без названия'}</b></summary>
+      <div class="grid2">${field('Название','title',p,{o:'projects.'+i})}<div><label>Категория</label><select data-o="projects.${i}" data-key="tag">${TAGS.map(([v,t])=>`<option value="${v}" ${p.tag===v?'selected':''}>${t}</option>`).join('')}</select></div></div>
+      ${field('Описание','description',p,{o:'projects.'+i,area:1})}
+      <label>Картинки и видео (★ — обложка карточки)</label>
+      <div class="media">${p.media.map((m,k)=>{const [t,id]=m.split(':');return `<div class="m"><div class="pic" style="background-image:url('${thumb(id)}')">${id===p.cover?'<span class="cov">★ обложка</span>':''}${t==='v'?'<span class="vid">▶ видео</span>':''}</div><div class="mt"><span><button title="Левее" data-act="mleft" data-i="${i}" data-k="${k}">←</button><button title="Правее" data-act="mright" data-i="${i}" data-k="${k}">→</button></span><span><button title="Сделать обложкой" data-act="cover" data-i="${i}" data-k="${k}">★</button><button title="Убрать" data-act="mdel" data-i="${i}" data-k="${k}">✕</button></span></div></div>`}).join('')}</div>
+      <div class="addmedia"><input type="text" placeholder="Вставь ссылку на файл в Google Drive" id="ml${i}"><select id="mt${i}" style="width:auto"><option value="i">Картинка</option><option value="v">Видео</option></select><button class="btn sm" data-act="madd" data-i="${i}">Добавить</button></div>
+      <div class="hint">Файл в Drive должен быть открыт по ссылке («Все, у кого есть ссылка»).</div>
+      ${tools('projects',i)}
+    </details>`).join('')+`<button class="btn add" data-act="add" data-list="projects">+ Добавить работу</button>`);
+  $('#editor').innerHTML=h;
+}
+
+// ---------- reading fields back ----------
+function target(o){ if(!o) return C; const [list,i]=o.split('.'); return C[list][+i]; }
+$('#editor').addEventListener('input',e=>{
+  const el=e.target; if(!el.dataset.key) return;
+  const obj=target(el.dataset.o);
+  obj[el.dataset.key]=el.dataset.lines? el.value.split('\n').map(s=>s.trim()).filter(Boolean) : el.value;
+  markDirty();
+});
+$('#editor').addEventListener('change',e=>{ if(e.target.tagName==='SELECT'&&e.target.dataset.key){ target(e.target.dataset.o)[e.target.dataset.key]=e.target.value; markDirty(); }});
+function collect(){ document.querySelectorAll('#editor [data-key]').forEach(el=>{const obj=target(el.dataset.o);obj[el.dataset.key]=el.dataset.lines?el.value.split('\n').map(s=>s.trim()).filter(Boolean):el.value;}); }
+
+const driveId=s=>{s=s.trim();let m=s.match(/\/d\/([\w-]{20,})/)||s.match(/[?&]id=([\w-]{20,})/);if(m)return m[1];if(/^[\w-]{20,}$/.test(s))return s;return null;};
+const NEW={jobs:()=>({title:'Новая должность',date:'',sub:'',bullets:[]}),education:()=>({text:'',date:''}),languages:()=>({name:'',level:''}),projects:()=>({title:'Новая работа',tag:'Real-time',cover:'',description:'',media:[]})};
+const swap=(a,i,j)=>{if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];};
+
+$('#editor').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]'); if(!b) return;
+  e.preventDefault(); collect();
+  const act=b.dataset.act, list=b.dataset.list, i=+b.dataset.i, k=+b.dataset.k;
+  if(act==='add'){C[list].push(NEW[list]()); if(list==='projects') openState['p'+(C.projects.length-1)]=true;}
+  if(act==='del'){ if(!confirm('Удалить этот пункт?')) return; C[list].splice(i,1);}
+  if(act==='up') swap(C[list],i,i-1);
+  if(act==='down') swap(C[list],i,i+1);
+  const p=C.projects[i];
+  if(act==='mleft') swap(p.media,k,k-1);
+  if(act==='mright') swap(p.media,k,k+1);
+  if(act==='cover') p.cover=p.media[k].split(':')[1];
+  if(act==='mdel'){ const id=p.media[k].split(':')[1]; p.media.splice(k,1); if(p.cover===id) p.cover=(p.media[0]||':').split(':')[1]; }
+  if(act==='madd'){
+    const id=driveId($('#ml'+i).value);
+    if(!id){alert('Не вижу ссылку на файл Google Drive. Нужна ссылка вида drive.google.com/file/d/…');return;}
+    p.media.push($('#mt'+i).value+':'+id); if(!p.cover) p.cover=id;
+  }
+  if(act.startsWith('m')||act==='cover') openState['p'+i]=true;
+  markDirty(); draw();
+});
+</script>
+</body>
+</html>

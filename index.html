@@ -96,13 +96,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
 .vnav button{font:inherit;font-size:14px;font-weight:600;background:transparent;color:#f4e9d8;border:1px solid #f4e9d855;border-radius:999px;padding:10px 18px;cursor:pointer}
-[hidden]{display:none!important}#portfolio,#resume{scroll-margin-top:61px}
+[hidden]{display:none!important}
+#portfolio,#resume{scroll-margin-top:61px}
 @media (max-width:600px){.wrap,.vbody{padding-left:16px;padding-right:16px}.vbar{padding:12px 16px}.brand{font-size:14px}.tab{padding:8px 12px}}
 </style>
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="#">Егор Мышенин</a>
+  <a class="brand" href="#" data-k="name"></a>
   <div class="tabs">
     <a class="tab" href="#" data-tab="resume">Резюме</a>
     <a class="tab" href="#portfolio" data-tab="portfolio">Портфолио</a>
@@ -113,50 +114,24 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
  <div class="wrap">
   <article class="sheet">
     <div class="rhead">
-      <h1>Егор Мышенин</h1>
+      <h1 data-k="name"></h1>
       <div class="rcontact">
-        <div class="role">3D Character Artist</div>
-        <a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a><br>
-        Красноярск<br>
-        <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a>
+        <div class="role" data-k="role"></div>
+        <a id="c-email"></a><br>
+        <span data-k="city"></span><br>
+        <a id="c-art" target="_blank" rel="noopener"></a>
       </div>
     </div>
     <div class="rgrid">
       <div class="left">
-        <section class="sec"><h2>О себе</h2>
-          <p class="about">3D-художник по персонажам. Делаю game-ready модели под Unreal Engine 5 и Unity по полному пайплайну: скульпт, ретопология под анимацию, UV, запекание, PBR-текстуры, сборка в движке. Есть опыт работы в студии и на фрилансе, закрываю также пропсы и hard-surface. Английский B2.</p>
-        </section>
-        <section class="sec"><h2>Опыт работы</h2>
-          <div class="job"><div class="row"><h3>3D-моделлер — Visuva</h3><span class="date">2026 – наст. время</span></div>
-            <div class="sub">Студия · 3 месяца</div>
-            <ul><li>Моделирование и текстурирование 3D-моделей по ТЗ</li><li>Ретопология, UV и PBR-текстуры под требования проекта</li></ul></div>
-          <div class="job"><div class="row"><h3>Фриланс 3D-художник</h3><span class="date">2024 – наст. время</span></div>
-            <div class="sub">Самозанятый · различные клиенты</div>
-            <ul><li>Low-poly ассеты для мобильной игры (Unity)</li><li>3D-маскот для онлайн-школы и пропсы для рендеров</li><li>Перенос рига между персонажами, импорт в Unity</li></ul></div>
-          <div class="job"><div class="row"><h3>Инди-игра · Unreal Engine 5, команда</h3><span class="date">2025–2026</span></div>
-            <ul><li>Ассеты окружения: модели, текстуры, сборка в UE5</li></ul></div>
-          <div class="job"><div class="row"><h3>Соло-игра · Unity</h3><span class="date">2024–2025</span></div>
-            <ul><li>Весь 3D-контент: модели, текстуры, импорт в движок</li></ul></div>
-        </section>
-        <section class="sec"><h2>Образование и курсы</h2>
-          <ul class="edu">
-            <li><span>ИКИТ СФУ — «Разработка компьютерных игр и приложений», студент</span><span class="date">2023–2027</span></li>
-            <li><span>FlippedNormals — Introduction to Anatomy</span><span class="date">2025</span></li>
-            <li><span>Hafez Yadollahi — AAA Game Character Creation</span><span class="date">2026</span></li>
-            <li><span>FastTrackTutorials — AAA Game Character Creation</span><span class="date">2025</span></li>
-          </ul>
-        </section>
+        <section class="sec"><h2>О себе</h2><p class="about" data-k="about"></p></section>
+        <section class="sec"><h2>Опыт работы</h2><div id="jobs"></div></section>
+        <section class="sec"><h2>Образование и курсы</h2><ul class="edu" id="edu"></ul></section>
       </div>
       <div class="right">
-        <section class="sec"><h2>Программы</h2>
-          <ul class="plain"><li>ZBrush</li><li>Blender</li><li>Substance Painter</li><li>Marmoset Toolbag</li><li>Marvelous Designer</li><li>R3DS Wrap</li><li>Photoshop</li><li>Unreal Engine 5</li><li>Unity</li></ul>
-        </section>
-        <section class="sec"><h2>Навыки</h2>
-          <ul class="list"><li>Скульпт по концептам</li><li>Анатомия, реализм и стилизация</li><li>Ретопология под анимацию</li><li>UV-развёртка и запекание</li><li>PBR-текстурирование</li><li>Симуляция одежды</li><li>Материалы и сборка в UE5</li><li>Low-poly для мобильных игр</li><li>Hard-surface и пропсы</li><li>Модели под 3D-печать</li><li>Python-скрипты для Blender</li></ul>
-        </section>
-        <section class="sec"><h2>Языки</h2>
-          <ul class="langs"><li>Русский <span>Родной</span></li><li>Английский <span>B2</span></li></ul>
-        </section>
+        <section class="sec"><h2>Программы</h2><ul class="plain" id="programs"></ul></section>
+        <section class="sec"><h2>Навыки</h2><ul class="list" id="skills"></ul></section>
+        <section class="sec"><h2>Языки</h2><ul class="langs" id="langs"></ul></section>
       </div>
     </div>
   </article>
@@ -171,7 +146,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
  <div class="wrap">
   <div class="phead">
     <h1>Портфолио</h1>
-    <p>Game-ready персонажи и ассеты под Unreal Engine 5 и Unity, стилизованные персонажи под рендер и модели для 3D-печати.</p>
+    <p data-k="portfolioIntro"></p>
   </div>
   <div class="filters" role="group" aria-label="Фильтр работ">
     <button class="chip" data-f="all" aria-pressed="true">Все</button>
@@ -181,8 +156,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
   </div>
   <div class="grid" id="grid"></div>
   <footer>
-    <span>© Егор Мышенин</span>
-    <span><a href="mailto:emyshenin@gmail.com">emyshenin@gmail.com</a> · <a href="https://www.artstation.com/maishen" target="_blank" rel="noopener">artstation.com/maishen</a></span>
+    <span>© <span data-k="name"></span></span>
+    <span><a id="f-email"></a> · <a id="f-art" target="_blank" rel="noopener"></a></span>
   </footer>
  </div>
 </section>
@@ -197,47 +172,27 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
 </div>
 
 <script>
-const P = [
- {t:"Arida",tag:"Real-time",cover:"1Pyse5vhO2QgK8pG_CXsUES7qRskkzGYM",
-  d:"Game-ready персонаж по мотивам вселенной «Дюны». Скульпт в ZBrush, симуляция ткани в Marvelous Designer, текстуры в Substance Painter, финальная сцена и рендер в Unreal Engine 5.",
-  m:["i:1Pyse5vhO2QgK8pG_CXsUES7qRskkzGYM","i:1dJ5_JVcyFc8VbyfG-HnytWi9tvMP0e6U","i:1ITRObGhoGGvdj8hUa5554Zdxc4WgjL7v","i:1Z70t44tc3tOvm-cryETfqbausTAzef6k","i:1W_LoHBy270pzRRChf5obLaGyIPcn2Tix","v:1mboSyGn6EEAdjBHuLkF3Tm75NLZCwLxI","i:1Y2Nw2sb4mqHZTtKKIm6grn7xAAS_r2CK","i:1CsFpByqhNk7fbRbatNez2PYN2EGbP62H","i:1EtCJtomWJduXYAhn-X9QzNLDL1ZJEyth","i:1qVdI1y_7GggBudObzfXsZre4QFReDFby","i:1H1BVGtTtbKXLCYTZ7VYVUBgyqA6TT_qu","i:1i-xqLKUTKS85eMKfZHU4vcYbvXROK5LT","i:1p017mObWgH5jK2qoECorbNcRYoMa0Pqg","i:16YupaNW-112NJnLmuHMuL2NeHSSmGIIt","i:12re9VRE0gqRaj5pq1mn5aPa5qsoxrfwi","i:1ytktybmF5tM6uZcoLvrdWtj8Zgu8ndRS","i:1BjqxjJPCPTuAu_xri4NS74J7R2viYWzF","i:1ZgcFOi7g2weNTAIdYW9dqtVXcXzbkEyW"]},
- {t:"Frieren",tag:"Real-time",cover:"1v2P906ymWug9mq9hx6axCBzbUtoWLe_E",
-  d:"Фан-арт персонажа Фрирен: game-ready модель, турнтейбл и анимированные пролёты камеры.",
-  m:["i:1v2P906ymWug9mq9hx6axCBzbUtoWLe_E","v:1wPfggMXV6U7qCNBBlMKL3mNfHfnbQc1i","i:1s1QrJIr4mxs11YJSvwHddJZvpMR0l8Mh","i:12HnOa1LWCNufONdUWQr2udVWseEmZmYc","i:1AANvpcDetH1e-UuKBpvr2O3GDohM6W8z","i:14SGRLR6jtgmh23rqlfCfcJSc_IwU7QNE","i:1xHWJRv7ZisEJ9Yr36OHC25Ne535vD-3z","i:1W6ymBis8mH6N4_B0PATGj2b_5NTBLBYX","i:1xBpLIofttaWga8n0LaBq4j9z2oJQ3oGL","i:18I6HknHV_FUO1mmAdn4M5Mc0RNZ7Pi4f","i:1OWrk-0m4t_NQxJplHfrgarLCY3LQutv1","v:1HCcAUQVTNKXGUjOOm8cKLCqObN9pD7ho","v:1kIQnwB4Uw0wn2EfQRVY4cC0fe81FPXVe","v:1qG6qyNBJ89DT56H3jlemnQDo8gKI5erb","v:1DH6kZcym1fttc2sBL-yyNWooAZkmuhAJ"]},
- {t:"Daggers",tag:"Real-time",cover:"1HJgiKByfnCeif4ahmWASgluQxFeq7quj",
-  d:"Пара кинжалов для персонажа Arida. Game-ready ассеты с PBR-текстурами, рендер в Unreal Engine 5.",
-  m:["i:1HJgiKByfnCeif4ahmWASgluQxFeq7quj","i:1cyuUqOh-9Uu9id787i7Tx5Z0lq3yD2Uu","i:1ltDVQ5_muCCmZ-C3XEvOxAKJ5OakMSqI","i:1H8t-V06eqBgAKZ64aJx0qXeSZaAY7sQ5","v:1FXkVMCnF0BNqZNtJzDjjZJiiy0EWGr2b"]},
- {t:"Furry Mouse",tag:"Cycles",cover:"1w1V4vZTTB46G19ASJbXLzDVtJNWX7EEN",
-  d:"Стилизованный персонаж-мышь под рендер. Шерсть сделана через hair system в Blender, финальный рендер там же.",
-  m:["i:1w1V4vZTTB46G19ASJbXLzDVtJNWX7EEN","i:1VAJUt9d8r90bbkvVJ1egUgSDZHu_YbAY","i:1yAS-_JsMCZAmZ5hDJPNH4YDXNn-vXg8z","i:1DDI_-6Nrp2mVBFh44f1ofcl3OiHtm_3H","v:1FyFaneUO7L2ucTy6UN3B8WikP-Zvv6Xq"]},
- {t:"Hanako",tag:"Cycles",cover:"1TaW9-nCZfs70T_w5qActlelgxHXq3qEu",
-  d:"Фан-арт персонажа Ханако из аниме «Туалетный мальчик Ханако». Стилизованный персонаж под рендер, зариган и готов к анимации. Рендер в Blender.",
-  m:["i:1TaW9-nCZfs70T_w5qActlelgxHXq3qEu","i:1depFDCplMjJeCqC7wBKKASDzOGFC45Ru","i:1ePvlOJrCfPFMB0yiRyjeqiPHi_fHgvEv","i:1PcUUvwJGldoCL7ESwEik0UEhT1t07gt4","i:1vWVLOr12KXc3sLqekkmdHOzRf1Hg8dcz","i:1eoibjjwRQJfemkXLUjpJk5wsecF1SPPX","i:1YKPltymIBsrNBk2vEsLDDm0NAbaP0YQ2","i:1l30cwCZWs6yZ0v8ZXM72WJD4R3q6b_5G","i:1L3xLl4HvtoLdpGTkff7f0VCqIXt0qR20","i:1WzsMvpgyRACFam9EXnRqznYlrYLjs56m"]},
- {t:"Staff",tag:"Real-time",cover:"1HqioqAew07EClU6qfll62pS8mgXVyJlD",
-  d:"Посох: game-ready ассет с текстурами и сеткой.",
-  m:["i:1HqioqAew07EClU6qfll62pS8mgXVyJlD","i:1B63PbE7upE6RHQPZrdf3okWdKg2AXKpM","i:1j7tjQaGJWnLkEzXWxucX_GretBPjNXCn","i:1sT2CcJEHBl07SQRpl0ZM066CbbOfZpAp","i:1ZsqKVjMMbtqn_sMkzjNnodhTY8QiRH4m","i:14qX4lzibBxhUxjEwSRHRnRgVdTfeoGQI"]},
- {t:"Сетка и текстуры",tag:"Real-time",cover:"1Cm42_kmq0lEZ-kozndkUj5m_W5sYylaz",
-  d:"Примеры топологии и текстурных карт персонажей.",
-  m:["i:1Cm42_kmq0lEZ-kozndkUj5m_W5sYylaz","i:1j_tVQh6ezSBHOu5yDZd84Gw_tpqPpqs2","i:10zwCy8F3QNj9NOAcby-i9P2XMVLZLs6y","i:1UC5pwbCW5ztj3NwmvsdMtH52eyAPeQBL","i:16kEp6Ze4712C4qfe3SEDfGYbGl9iJqoq","i:1y4bj29UTcWlo_MeQQLpWKscG7R1kXZHF","i:1CPdThYP6fgSxhEjocOo1tyymLbyoKmpB","i:1Ulgz6p9IQSFynygJP4cg6_24Jvom8OLy","i:1KUhRT2v-vZprzfeGXuVj6elrOJMSrE7S","i:1fyhQTgNRMCl2xiTjiYrsoTQilF_yUQWz"]},
- {t:"School Mascot",tag:"Cycles",cover:"1IMc554b0qcynLvkQkiXAEiW0hFFWVhbL",
-  d:"3D-маскот для онлайн-школы: персонаж, набор эмоций-эмодзи, пропсы и промо-рендеры.",
-  m:["i:1IMc554b0qcynLvkQkiXAEiW0hFFWVhbL","i:1EjfYYMYzSgJJ13P-B8698wKgIEQUMb2_","i:1B3UzmMYJwyaUGQhRfiqwYovXGEplJcf0","i:11TMp6btjfjoWD0espKD5N_-Rf1Svenb8","i:1vGbeMpH6v7snjwXPg2TEnS5cRZils7TJ","i:1P37dhxGs-EdsHZ7QDh4U36Of4UenldKm","i:1TjF8c3YCiSeACHpnUUIyzSpF2Hdi5_HA","i:1yl3UhCV9hORHHsVls7vZtjccnoybu_gN","i:1XA2QCDPjiISeurwzcO3cV9bDunbKR0QL","i:1xs0gw3gKDCe7fJao2Qoh3bWap6BqQdYj","i:1Iec1XnljouiJKieHE5W6Fj29hXTZ4gdE","i:1DFjYQiQZEia6yGSj6IdAyBK8RBcaGgIs","i:1T26I3m5ykxlLh7UYUbN68OChv5BnEzTX","i:1UpMULrREi9ldodZOUQdeNil29IKtona5","i:1-3hOhOCkOaxpmH9OLertaAm852JU5m1S","i:192vHaGU6Qx-Kr5AbwIJhbLnXyqJ4tws-","i:1bk8Uj82OshfcGRIAl5TG-0PDSHn-9gtf","i:1vuqkGYg8_1bfixfzUBmE3yiJcDDIWLmy","i:1_nQfdPSPNRltqDVydVwm7_h_nJy-2tgX","i:1lRI3HCXbLGVKlm_0pddCtohwsD-u8Vp0","i:1-TzY5ZnaEymW04OEvGHUG_m6BsaQ5Obi","i:1KEetU84bB6o-gls-nN9IGWHnlG6DylEh","i:1Ikux9Ivj2JZy_vvGZKbkiD3O0iIhysEi","i:1WSi-nAmR7YriMwazjG57KMJmVmqLJrLb","i:1LGQjMQ6Bm15mrC_7wpePJJjGHcKrPWfm","i:1ZB2TUVbI9PnH0rD-nWZGzOobLaMXETkx","i:1T0QdB7h3ehdHVl4LiPfBRtHOVZsBfG_B","i:13FmVx2XSULBVgBSUqO2LbT8FhFZY2exv","i:1wSj8r4pDKm7ASTRGSn3TtzlDPSGXBLNl","i:1HZrvze6uTFso7DexVeKrrPidTIDSMj_H","i:1vjZUP_1d9wcTuY12l_n6oba240wy897g","i:1Acbz206NBI79CkT6RBEyEGGYQADY4JG_","i:1Jl-1FhbMFyPdpy5tdgQHLtMWwYZsThp-","i:1K9rykDZ8HvOMj7CMztr8vdklwAVjQW_m","i:12-MBtBryimwAhjUCBnzMNxOV4k7rJxA7"]},
- {t:"Low-poly Game Kit",tag:"Real-time",cover:"1XGf0-NNCqXLK5Fe5OqPO0jW7fFL1M_IF",
-  d:"Набор low-poly ассетов для игры.",
-  m:["i:1XGf0-NNCqXLK5Fe5OqPO0jW7fFL1M_IF","i:1U25QI3YJKr3nQsYUSaBHPjIEqNmbJiTX","i:1d4FgP1LOy7LSRpcq2e5w9I2x1BFFk2d_","i:1D_bsPO9MFwbjQJAmXKvaSbOOOjhWsVCc"]},
- {t:"Low-poly Car",tag:"Real-time",cover:"1XAI4c9_F4jVHeSwhF7T2tE29Ts7XvK9B",
-  d:"Low-poly модель автомобиля.",
-  m:["i:1XAI4c9_F4jVHeSwhF7T2tE29Ts7XvK9B","i:1xT1-9UoefilDATy_8EUo88a_44nRlgO3","i:1qpuNUGGr5n8C_Gv1_f5_uj9a3wDCz7Eo"]},
- {t:"Donatov.net Figure",tag:"Печать",cover:"1143TIQgAbS2xwj-TaRvPx8StT4ytkNN-",
-  d:"Фигурка, подготовленная к 3D-печати.",
-  m:["i:1143TIQgAbS2xwj-TaRvPx8StT4ytkNN-","i:1KKMCxFFDn18Wkz_Nt-a9cd2C74cAsCVU","i:1Yo7rRHJPkdI0FUwHvjDyux5yy2QUq63x","i:1MfRRgG7HoWpr_v8fL3U-Hx1_b74--fhz"]},
- {t:"Funko Figure",tag:"Печать",cover:"1psXuCFQ3nxXI6yb6XHpETLDdKFTpACyZ",
-  d:"Фигурка в стиле Funko для 3D-печати.",
-  m:["i:1psXuCFQ3nxXI6yb6XHpETLDdKFTpACyZ","i:1j5aGA12z5XqWHiMne_28HsiH0prGI4Ld"]}
-];
+// Все тексты сайта лежат в content.json — их удобно менять через editor.html
 const TAGLABEL={"Real-time":"Real-time","Cycles":"Рендер · Cycles","Печать":"Для 3D-печати"};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const img=(id,w)=>`https://lh3.googleusercontent.com/d/${id}=w${w}`;
 const alt=(id,w)=>`https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+let C, P=[];
+
+function fill(){
+  document.querySelectorAll('[data-k]').forEach(e=>e.textContent=C[e.dataset.k]||'');
+  for(const id of ['c-email','f-email']){const a=document.getElementById(id);a.href='mailto:'+C.email;a.textContent=C.email;}
+  for(const id of ['c-art','f-art']){const a=document.getElementById(id);a.href=C.artstation;a.textContent=C.artstation.replace(/^https?:\/\/(www\.)?/,'');}
+  document.getElementById('jobs').innerHTML=C.jobs.map(j=>`<div class="job"><div class="row"><h3>${esc(j.title)}</h3><span class="date">${esc(j.date)}</span></div>${j.sub?`<div class="sub">${esc(j.sub)}</div>`:''}${j.bullets.length?`<ul>${j.bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>`:''}</div>`).join('');
+  document.getElementById('edu').innerHTML=C.education.map(e=>`<li><span>${esc(e.text)}</span><span class="date">${esc(e.date)}</span></li>`).join('');
+  document.getElementById('programs').innerHTML=C.programs.map(x=>`<li>${esc(x)}</li>`).join('');
+  document.getElementById('skills').innerHTML=C.skills.map(x=>`<li>${esc(x)}</li>`).join('');
+  document.getElementById('langs').innerHTML=C.languages.map(l=>`<li>${esc(l.name)} <span>${esc(l.level)}</span></li>`).join('');
+  document.title=`${C.name} — ${C.role}`;
+  P=C.projects;
+  render('all');
+}
+
 const grid=document.getElementById('grid');
 function render(f){
   grid.innerHTML='';
@@ -245,8 +200,8 @@ function render(f){
     if(f!=='all'&&p.tag!==f) return;
     const b=document.createElement('button');
     b.className='card';
-    b.innerHTML=`<span class="thumb" style="background-image:url('${img(p.cover,1200)}'),url('${alt(p.cover,1200)}')"></span><span class="meta"><h3>${p.t}</h3><p>${TAGLABEL[p.tag]}</p></span>`;
-    b.onclick=()=>{location.hash='portfolio/'+encodeURIComponent(p.t)};
+    b.innerHTML=`<span class="thumb" style="background-image:url('${img(p.cover,1200)}'),url('${alt(p.cover,1200)}')"></span><span class="meta"><h3>${esc(p.title)}</h3><p>${esc(TAGLABEL[p.tag]||p.tag)}</p></span>`;
+    b.onclick=()=>{location.hash='portfolio/'+encodeURIComponent(p.title)};
     grid.appendChild(b);
   });
 }
@@ -254,24 +209,23 @@ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
   document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
   render(c.dataset.f);
 });
-render('all');
 
 const V=document.getElementById('viewer'),M=document.getElementById('media');
 let cur=-1;
 function openP(i){
   cur=(i+P.length)%P.length; const p=P[cur];
-  document.getElementById('vtitle').innerHTML=`${p.t}<span>${TAGLABEL[p.tag]}</span>`;
-  document.getElementById('vdesc').textContent=p.d;
-  M.innerHTML=p.m.map(x=>{
+  document.getElementById('vtitle').innerHTML=`${esc(p.title)}<span>${esc(TAGLABEL[p.tag]||p.tag)}</span>`;
+  document.getElementById('vdesc').textContent=p.description;
+  M.innerHTML=p.media.map(x=>{
     const [k,id]=x.split(':');
     return k==='v'
-      ? `<div class="video"><iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="Видео ${p.t}"></iframe></div>`
-      : `<img loading="lazy" src="${img(id,2000)}" onerror="this.onerror=null;this.src='${alt(id,2000)}'" alt="${p.t}">`;
+      ? `<div class="video"><iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="Видео"></iframe></div>`
+      : `<img loading="lazy" src="${img(id,2000)}" onerror="this.onerror=null;this.src='${alt(id,2000)}'" alt="${esc(p.title)}">`;
   }).join('');
   V.classList.add('open'); V.scrollTop=0; document.body.style.overflow='hidden';
 }
 function closeViewer(){V.classList.remove('open');document.body.style.overflow='';M.innerHTML='';cur=-1;}
-const go=i=>{location.hash='portfolio/'+encodeURIComponent(P[(i+P.length)%P.length].t)};
+const go=i=>{location.hash='portfolio/'+encodeURIComponent(P[(i+P.length)%P.length].title)};
 document.getElementById('close').onclick=()=>{location.hash='portfolio'};
 document.getElementById('prev').onclick=()=>go(cur-1);
 document.getElementById('next').onclick=()=>go(cur+1);
@@ -285,11 +239,13 @@ function route(){
   document.querySelectorAll('.tab').forEach(t=>t.toggleAttribute('aria-current',false));
   document.querySelector(`.tab[data-tab="${isP?'portfolio':'resume'}"]`).setAttribute('aria-current','page');
   const name=h.startsWith('portfolio/')?h.slice(10):'';
-  const i=P.findIndex(p=>p.t===name);
+  const i=P.findIndex(p=>p.title===name);
   if(i>=0){ if(i!==cur) openP(i); } else if(V.classList.contains('open')) closeViewer();
   if(!name) scrollTo(0,0);
 }
-addEventListener('hashchange',route); route();
+addEventListener('hashchange',route);
+fetch('content.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{C=d;fill();route();})
+  .catch(()=>{document.querySelector('.sheet').innerHTML='<p>Не удалось загрузить content.json</p>';});
 </script>
 </body>
 </html>
