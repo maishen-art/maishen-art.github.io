@@ -6,6 +6,7 @@
 
   var LANGS = ['ru', 'en'];
   var DEFAULT_LANG = 'ru';
+  var PDF = { ru: 'resume.pdf', en: 'resume.en.pdf' };
 
   var UI = {
     ru: {
@@ -43,7 +44,7 @@
       skills: 'Skills',
       languages: 'Languages',
       viewPortfolio: 'View portfolio →',
-      downloadPdf: 'Download PDF (RU)',
+      downloadPdf: 'Download PDF',
       portfolioTitle: 'Portfolio',
       filterAll: 'All',
       filterRealtime: 'Real-time',
@@ -164,7 +165,7 @@
     });
 
     var pdf = document.getElementById('pdf');
-    if (pdf) pdf.href = ROOT + 'resume.pdf';
+    if (pdf) pdf.href = ROOT + (PDF[LANG] || PDF.ru);
 
     document.title = C.name + ' — ' + C.role;
     var md = document.querySelector('meta[name="description"]');
