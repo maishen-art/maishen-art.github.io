@@ -1,4 +1,7 @@
 <!doctype html>
+<!-- This page is the site shell. en/index.html and ru/index.html are copies of it:
+     keep the body and script tags identical, only <html lang> and the head
+     title/description change per language. -->
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -8,105 +11,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#FFF7E7;--ink:#670000;--muted:#670000a6;--soft:#67000080;--line:#6700002e;--card:#fffaf0;--dark:#1b1212;--page:#FFF7E7}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#efe4d0;color:var(--ink);font-family:Montserrat,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-
-/* top nav */
-.nav{position:sticky;top:0;z-index:5;background:#FFF7E7f2;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
-.brand{font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
-.tabs{display:flex;gap:4px}
-.tab{font:inherit;font-size:14px;font-weight:600;text-decoration:none;padding:8px 16px;border-radius:999px}
-.tab[aria-current=page]{background:var(--ink);color:var(--bg)}
-.tab:not([aria-current=page]):hover{background:#6700000f}
-
-/* resume page */
-#resume{padding:40px 0 64px}
-.sheet{max-width:860px;margin:0 auto;background:var(--page);box-shadow:0 10px 40px #67000018;border-radius:4px;padding:64px 64px 56px}
-.rhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1.5px solid var(--ink)}
-.rhead h1{font-size:clamp(32px,5vw,46px);font-weight:600;line-height:1.05}
-.rcontact{text-align:right;font-size:14px;line-height:1.6}
-.rcontact .role{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.rgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:48px;margin-top:36px}
-.sec+.sec{margin-top:30px}
-.sec h2{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.about{font-size:14.5px;text-align:left}
-.job+.job{margin-top:16px}
-.job .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.job h3{font-size:15px;font-weight:600}
-.date{font-size:12px;color:var(--soft);white-space:nowrap}
-.sub{font-size:12.5px;color:var(--soft);margin:1px 0 4px}
-.job ul,.list{list-style:none;font-size:13.5px}
-.job li,.list li{position:relative;padding-left:14px}
-.job li::before,.list li::before{content:"•";position:absolute;left:0;color:var(--soft)}
-.plain{list-style:none;font-size:13.5px;line-height:1.75}
-.right .sec{border-top:1px solid var(--line);padding-top:22px}
-.right .sec:first-child{border-top:0;padding-top:0}
-.list{line-height:1.75}
-.edu li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px}
-.edu li+li{margin-top:8px}
-.langs li{display:flex;justify-content:space-between;font-size:14.5px}
-.langs span{color:var(--soft)}
-.ractions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-block;padding:11px 20px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;background:transparent;color:var(--ink);transition:background .15s,color .15s}
-.btn:hover,.btn.fill{background:var(--ink);color:var(--bg)}
-.btn.fill:hover{background:transparent;color:var(--ink)}
-@media (max-width:760px){
-  .sheet{padding:36px 22px 32px;border-radius:0;box-shadow:none}
-  #resume{padding:0 0 40px}
-  .rgrid{grid-template-columns:1fr;gap:30px}
-  .rcontact{text-align:left}
-  .about{text-align:left}
-  .right .sec:first-child{border-top:1px solid var(--line);padding-top:22px}
-}
-
-/* portfolio */
-#portfolio{background:var(--bg);min-height:100vh}
-.phead{padding:44px 0 8px}
-.phead h1{font-size:clamp(30px,5vw,48px);font-weight:600;line-height:1.1}
-.phead p{margin-top:12px;max-width:720px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 20px}
-.chip{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
-.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding-bottom:64px;align-items:start}
-.card{display:flex;flex-direction:column;width:100%;background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .2s,box-shadow .2s;text-align:left;font:inherit;color:inherit;padding:0}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #67000022}
-.card:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.thumb{aspect-ratio:4/3;background:#e9dcc6 center/cover no-repeat;display:block;width:100%}
-.meta{display:block;padding:14px 16px 16px}
-.meta h3{font-size:16px;font-weight:600}
-.meta p{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
-footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-.viewer{position:fixed;inset:0;background:var(--dark);color:#f4e9d8;overflow-y:auto;display:none;z-index:10}
-.viewer.open{display:block}
-.vbar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 24px;background:#1b1212ee;backdrop-filter:blur(6px);z-index:2}
-.vbar h2{font-size:18px;font-weight:600}
-.vbar span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-left:10px}
-.close{font:inherit;font-size:14px;font-weight:600;background:#f4e9d8;color:var(--dark);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
-.vbody{max-width:1400px;margin:0 auto;padding:8px 24px 64px}
-.vdesc{max-width:760px;margin:8px 0 24px;opacity:.85}
-.media{display:grid;gap:14px}
-.media img{width:100%;height:auto;display:block;border-radius:8px;background:#2a1f1f;min-height:200px}
-.video{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vnav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
-.vnav button{font:inherit;font-size:14px;font-weight:600;background:transparent;color:#f4e9d8;border:1px solid #f4e9d855;border-radius:999px;padding:10px 18px;cursor:pointer}
-[hidden]{display:none!important}
-#portfolio,#resume{scroll-margin-top:61px}
-@media (max-width:600px){.wrap,.vbody{padding-left:16px;padding-right:16px}.vbar{padding:12px 16px}.brand{font-size:14px}.tab{padding:8px 12px}}
-</style>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#" data-k="name"></a>
   <div class="tabs">
-    <a class="tab" href="#" data-tab="resume">Резюме</a>
-    <a class="tab" href="#portfolio" data-tab="portfolio">Портфолио</a>
+    <a class="tab" href="#" data-tab="resume" data-ui="resume"></a>
+    <a class="tab" href="#portfolio" data-tab="portfolio" data-ui="portfolio"></a>
+  </div>
+  <div class="langswitch" role="group" data-ui-aria="langSwitch">
+    <button type="button" class="lang" data-lang="ru" lang="ru">RU</button>
+    <button type="button" class="lang" data-lang="en" lang="en">EN</button>
   </div>
 </div></nav>
 
@@ -124,20 +40,20 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
     </div>
     <div class="rgrid">
       <div class="left">
-        <section class="sec"><h2>О себе</h2><p class="about" data-k="about"></p></section>
-        <section class="sec"><h2>Опыт работы</h2><div id="jobs"></div></section>
-        <section class="sec"><h2>Образование и курсы</h2><ul class="edu" id="edu"></ul></section>
+        <section class="sec"><h2 data-ui="about"></h2><p class="about" data-k="about"></p></section>
+        <section class="sec"><h2 data-ui="experience"></h2><div id="jobs"></div></section>
+        <section class="sec"><h2 data-ui="education"></h2><ul class="edu" id="edu"></ul></section>
       </div>
       <div class="right">
-        <section class="sec"><h2>Программы</h2><ul class="plain" id="programs"></ul></section>
-        <section class="sec"><h2>Навыки</h2><ul class="list" id="skills"></ul></section>
-        <section class="sec"><h2>Языки</h2><ul class="langs" id="langs"></ul></section>
+        <section class="sec"><h2 data-ui="programs"></h2><ul class="plain" id="programs"></ul></section>
+        <section class="sec"><h2 data-ui="skills"></h2><ul class="list" id="skills"></ul></section>
+        <section class="sec"><h2 data-ui="languages"></h2><ul class="langs" id="langs"></ul></section>
       </div>
     </div>
   </article>
   <div class="ractions">
-    <a class="btn fill" href="#portfolio">Смотреть портфолио →</a>
-    <a class="btn" href="resume.pdf" download>Скачать PDF</a>
+    <a class="btn fill" href="#portfolio" data-ui="viewPortfolio"></a>
+    <a class="btn" id="pdf" href="/resume.pdf" download data-ui="downloadPdf"></a>
   </div>
  </div>
 </section>
@@ -145,14 +61,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
 <section id="portfolio" hidden>
  <div class="wrap">
   <div class="phead">
-    <h1>Портфолио</h1>
+    <h1 data-ui="portfolioTitle"></h1>
     <p data-k="portfolioIntro"></p>
   </div>
-  <div class="filters" role="group" aria-label="Фильтр работ">
-    <button class="chip" data-f="all" aria-pressed="true">Все</button>
-    <button class="chip" data-f="Real-time" aria-pressed="false">Real-time</button>
-    <button class="chip" data-f="Cycles" aria-pressed="false">Рендер</button>
-    <button class="chip" data-f="Печать" aria-pressed="false">3D-печать</button>
+  <div class="filters" role="group" data-ui-aria="filterLabel">
+    <button type="button" class="chip" data-f="all" aria-pressed="true" data-ui="filterAll"></button>
+    <button type="button" class="chip" data-f="real-time" aria-pressed="false" data-ui="filterRealtime"></button>
+    <button type="button" class="chip" data-f="render" aria-pressed="false" data-ui="filterRender"></button>
+    <button type="button" class="chip" data-f="print" aria-pressed="false" data-ui="filterPrint"></button>
   </div>
   <div class="grid" id="grid"></div>
   <footer>
@@ -163,89 +79,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;displ
 </section>
 
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle">
-  <div class="vbar"><h2 id="vtitle"></h2><button class="close" id="close">Закрыть ✕</button></div>
+  <div class="vbar"><h2 id="vtitle"></h2><button type="button" class="close" id="close" data-ui="close"></button></div>
   <div class="vbody">
     <p class="vdesc" id="vdesc"></p>
     <div class="media" id="media"></div>
-    <div class="vnav"><button id="prev">← Предыдущая</button><button id="next">Следующая →</button></div>
+    <div class="vnav"><button type="button" id="prev" data-ui="prev"></button><button type="button" id="next" data-ui="next"></button></div>
   </div>
 </div>
 
-<script>
-// Все тексты сайта лежат в content.json — их удобно менять через editor.html
-const TAGLABEL={"Real-time":"Real-time","Cycles":"Рендер · Cycles","Печать":"Для 3D-печати"};
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const img=(id,w)=>`https://lh3.googleusercontent.com/d/${id}=w${w}`;
-const alt=(id,w)=>`https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
-let C, P=[];
-
-function fill(){
-  document.querySelectorAll('[data-k]').forEach(e=>e.textContent=C[e.dataset.k]||'');
-  for(const id of ['c-email','f-email']){const a=document.getElementById(id);a.href='mailto:'+C.email;a.textContent=C.email;}
-  for(const id of ['c-art','f-art']){const a=document.getElementById(id);a.href=C.artstation;a.textContent=C.artstation.replace(/^https?:\/\/(www\.)?/,'');}
-  document.getElementById('jobs').innerHTML=C.jobs.map(j=>`<div class="job"><div class="row"><h3>${esc(j.title)}</h3><span class="date">${esc(j.date)}</span></div>${j.sub?`<div class="sub">${esc(j.sub)}</div>`:''}${j.bullets.length?`<ul>${j.bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>`:''}</div>`).join('');
-  document.getElementById('edu').innerHTML=C.education.map(e=>`<li><span>${esc(e.text)}</span><span class="date">${esc(e.date)}</span></li>`).join('');
-  document.getElementById('programs').innerHTML=C.programs.map(x=>`<li>${esc(x)}</li>`).join('');
-  document.getElementById('skills').innerHTML=C.skills.map(x=>`<li>${esc(x)}</li>`).join('');
-  document.getElementById('langs').innerHTML=C.languages.map(l=>`<li>${esc(l.name)} <span>${esc(l.level)}</span></li>`).join('');
-  document.title=`${C.name} — ${C.role}`;
-  P=C.projects;
-  render('all');
-}
-
-const grid=document.getElementById('grid');
-function render(f){
-  grid.innerHTML='';
-  P.forEach((p,i)=>{
-    if(f!=='all'&&p.tag!==f) return;
-    const b=document.createElement('button');
-    b.className='card';
-    b.innerHTML=`<span class="thumb" style="background-image:url('${img(p.cover,1200)}'),url('${alt(p.cover,1200)}')"></span><span class="meta"><h3>${esc(p.title)}</h3><p>${esc(TAGLABEL[p.tag]||p.tag)}</p></span>`;
-    b.onclick=()=>{location.hash='portfolio/'+encodeURIComponent(p.title)};
-    grid.appendChild(b);
-  });
-}
-document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
-  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
-  render(c.dataset.f);
-});
-
-const V=document.getElementById('viewer'),M=document.getElementById('media');
-let cur=-1;
-function openP(i){
-  cur=(i+P.length)%P.length; const p=P[cur];
-  document.getElementById('vtitle').innerHTML=`${esc(p.title)}<span>${esc(TAGLABEL[p.tag]||p.tag)}</span>`;
-  document.getElementById('vdesc').textContent=p.description;
-  M.innerHTML=p.media.map(x=>{
-    const [k,id]=x.split(':');
-    return k==='v'
-      ? `<div class="video"><iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="Видео"></iframe></div>`
-      : `<img loading="lazy" src="${img(id,2000)}" onerror="this.onerror=null;this.src='${alt(id,2000)}'" alt="${esc(p.title)}">`;
-  }).join('');
-  V.classList.add('open'); V.scrollTop=0; document.body.style.overflow='hidden';
-}
-function closeViewer(){V.classList.remove('open');document.body.style.overflow='';M.innerHTML='';cur=-1;}
-const go=i=>{location.hash='portfolio/'+encodeURIComponent(P[(i+P.length)%P.length].title)};
-document.getElementById('close').onclick=()=>{location.hash='portfolio'};
-document.getElementById('prev').onclick=()=>go(cur-1);
-document.getElementById('next').onclick=()=>go(cur+1);
-addEventListener('keydown',e=>{if(!V.classList.contains('open'))return;if(e.key==='Escape')location.hash='portfolio';if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
-
-function route(){
-  const h=decodeURIComponent(location.hash.slice(1));
-  const isP=h.startsWith('portfolio');
-  document.getElementById('resume').hidden=isP;
-  document.getElementById('portfolio').hidden=!isP;
-  document.querySelectorAll('.tab').forEach(t=>t.toggleAttribute('aria-current',false));
-  document.querySelector(`.tab[data-tab="${isP?'portfolio':'resume'}"]`).setAttribute('aria-current','page');
-  const name=h.startsWith('portfolio/')?h.slice(10):'';
-  const i=P.findIndex(p=>p.title===name);
-  if(i>=0){ if(i!==cur) openP(i); } else if(V.classList.contains('open')) closeViewer();
-  if(!name) scrollTo(0,0);
-}
-addEventListener('hashchange',route);
-fetch('content.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{C=d;fill();route();})
-  .catch(()=>{document.querySelector('.sheet').innerHTML='<p>Не удалось загрузить content.json</p>';});
-</script>
+<script src="/app.js"></script>
 </body>
 </html>

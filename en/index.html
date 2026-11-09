@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- This page is the site shell. en/index.html and ru/index.html are copies of it:
+     keep the body and script tags identical, only <html lang> and the head
+     title/description change per language. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Egor Myshenin — 3D Character Artist</title>
+<meta name="description" content="3D Character Artist resume and portfolio: game-ready models for Unreal Engine 5 and Unity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#" data-k="name"></a>
+  <div class="tabs">
+    <a class="tab" href="#" data-tab="resume" data-ui="resume"></a>
+    <a class="tab" href="#portfolio" data-tab="portfolio" data-ui="portfolio"></a>
+  </div>
+  <div class="langswitch" role="group" data-ui-aria="langSwitch">
+    <button type="button" class="lang" data-lang="ru" lang="ru">RU</button>
+    <button type="button" class="lang" data-lang="en" lang="en">EN</button>
+  </div>
+</div></nav>
+
+<section id="resume">
+ <div class="wrap">
+  <article class="sheet">
+    <div class="rhead">
+      <h1 data-k="name"></h1>
+      <div class="rcontact">
+        <div class="role" data-k="role"></div>
+        <a id="c-email"></a><br>
+        <span data-k="city"></span><br>
+        <a id="c-art" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+    <div class="rgrid">
+      <div class="left">
+        <section class="sec"><h2 data-ui="about"></h2><p class="about" data-k="about"></p></section>
+        <section class="sec"><h2 data-ui="experience"></h2><div id="jobs"></div></section>
+        <section class="sec"><h2 data-ui="education"></h2><ul class="edu" id="edu"></ul></section>
+      </div>
+      <div class="right">
+        <section class="sec"><h2 data-ui="programs"></h2><ul class="plain" id="programs"></ul></section>
+        <section class="sec"><h2 data-ui="skills"></h2><ul class="list" id="skills"></ul></section>
+        <section class="sec"><h2 data-ui="languages"></h2><ul class="langs" id="langs"></ul></section>
+      </div>
+    </div>
+  </article>
+  <div class="ractions">
+    <a class="btn fill" href="#portfolio" data-ui="viewPortfolio"></a>
+    <a class="btn" id="pdf" href="/resume.pdf" download data-ui="downloadPdf"></a>
+  </div>
+ </div>
+</section>
+
+<section id="portfolio" hidden>
+ <div class="wrap">
+  <div class="phead">
+    <h1 data-ui="portfolioTitle"></h1>
+    <p data-k="portfolioIntro"></p>
+  </div>
+  <div class="filters" role="group" data-ui-aria="filterLabel">
+    <button type="button" class="chip" data-f="all" aria-pressed="true" data-ui="filterAll"></button>
+    <button type="button" class="chip" data-f="real-time" aria-pressed="false" data-ui="filterRealtime"></button>
+    <button type="button" class="chip" data-f="render" aria-pressed="false" data-ui="filterRender"></button>
+    <button type="button" class="chip" data-f="print" aria-pressed="false" data-ui="filterPrint"></button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <footer>
+    <span>© <span data-k="name"></span></span>
+    <span><a id="f-email"></a> · <a id="f-art" target="_blank" rel="noopener"></a></span>
+  </footer>
+ </div>
+</section>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle">
+  <div class="vbar"><h2 id="vtitle"></h2><button type="button" class="close" id="close" data-ui="close"></button></div>
+  <div class="vbody">
+    <p class="vdesc" id="vdesc"></p>
+    <div class="media" id="media"></div>
+    <div class="vnav"><button type="button" id="prev" data-ui="prev"></button><button type="button" id="next" data-ui="next"></button></div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
